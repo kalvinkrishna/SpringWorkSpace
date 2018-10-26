@@ -20,9 +20,14 @@ public class UserController {
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 
 	private final UserRepository userRepository;
-
+	
 	public UserController(UserRepository userRepository) {
 		this.userRepository = userRepository;
+	}
+	
+	@RequestMapping(value="hello", method=RequestMethod.GET)
+	public String hello() {
+		return "hello world";
 	}
 	
 	@RequestMapping(value="", method= RequestMethod.GET)

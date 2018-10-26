@@ -1,0 +1,8 @@
+/opt/springworkspace/course-api/src/main/java/org/models/UserRepository.java
+/opt/springworkspace/course-api/src/main/java/org/main/apps/AppConfiguration.java
+/opt/springworkspace/course-api/src/main/java/org/mongo/dal/UserDAL.java
+/opt/springworkspace/course-api/src/main/java/org/main/apps/Application.java
+/opt/springworkspace/course-api/src/main/java/org/controller/UserController.java
+/opt/springworkspace/course-api/src/main/java/org/mongo/dal/UserDALimplement.java
+/opt/springworkspace/course-api/src/main/java/org/main/apps/User.java
+/opt/springworkspace/course-api/src/main/java/org/models/User.java
