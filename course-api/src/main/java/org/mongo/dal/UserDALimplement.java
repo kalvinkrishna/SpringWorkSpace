@@ -23,7 +23,7 @@ public class UserDALimplement implements UserDAL{
 	public User getUserById(String userId) {
 		// TODO Auto-generated method stub
 		Query query = new Query();
-		query.addCriteria(Criteria.where("userId").is(userId));
+	//	query.addCriteria(Criteria.where("userId").is(userId));
 		return mongoTemplate.findOne(query, User.class);
 	}
 

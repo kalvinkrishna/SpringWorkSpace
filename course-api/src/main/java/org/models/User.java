@@ -15,28 +15,28 @@ public class User {
 	private Date creationDate = new Date();
 	private Map<String, String> userSettings = new HashMap<String, String>();
 	
-	private String getName() {
+	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
-	private Date getCreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
-	private void setCreationDate(Date creationDate) {
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-	private String getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	private void setUserId(String userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public Map<String, String> getUserSettings() {
 		return userSettings;
 	}
-	private void setUserSettings(Map<String, String> userSettings) {
+	public void setUserSettings(Map<String, String> userSettings) {
 		this.userSettings = userSettings;
 	}
 }

@@ -6,29 +6,32 @@ import org.models.User;
 import org.models.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import net.minidev.json.JSONObject;
 
 
 @RestController
 @RequestMapping(value="/")
+
 public class UserController {
 	
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 
 	private final UserRepository userRepository;
-	
+
 	public UserController(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 	
-	@RequestMapping(value="hello", method=RequestMethod.GET)
-	public String hello() {
-		return "hello world";
-	}
 	
 	@RequestMapping(value="", method= RequestMethod.GET)
 	public List<User> getAllUser(){
@@ -41,18 +44,22 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public User addNewUsers(@RequestBody User user) {
+	public ResponseEntity<User> addNewUsers(@RequestBody User user) {
 		LOG.info("Saving user.");
-		return userRepository.save(user);
+		
+		HttpHeaders responseHeader = new HttpHeaders();
+		
+		return new ResponseEntity<>(userRepository.save(user),responseHeader,HttpStatus.CREATED);
+		
 	}
 	
 	@RequestMapping(value = "/settings/{userId}", method = RequestMethod.GET)
-	public Object getAllUserSettings(@PathVariable String userId) {
+	public ResponseEntity<Object> getAllUserSettings(@PathVariable String userId) {
 		User user = userRepository.findOne(userId);
 		if (user != null) {
-			return user.getUserSettings();
+			return new ResponseEntity<>(user.getUserSettings(),new HttpHeaders(),HttpStatus.FOUND);
 		} else {
-			return "User not found.";
+			return new ResponseEntity<Object>(null,null,HttpStatus.NOT_FOUND);
 		}
 	}
 
@@ -65,6 +72,7 @@ public class UserController {
 			return "User not found.";
 		}
 	}
+	
 	
 
 	@RequestMapping(value = "/settings/{userId}/{key}/{value}", method = RequestMethod.GET)

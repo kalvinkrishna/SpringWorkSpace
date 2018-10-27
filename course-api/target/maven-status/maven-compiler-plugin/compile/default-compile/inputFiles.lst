@@ -6,3 +6,4 @@
 /opt/springworkspace/course-api/src/main/java/org/mongo/dal/UserDALimplement.java
 /opt/springworkspace/course-api/src/main/java/org/main/apps/User.java
 /opt/springworkspace/course-api/src/main/java/org/models/User.java
+/opt/springworkspace/course-api/src/main/java/org/controller/TutorController.java
