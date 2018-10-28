@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.models.User;
 import org.models.UserRepository;
+import org.mongo.dal.UserDAL;
+import org.mongo.dal.UserDALimplement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -13,25 +15,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.RestController;
-
-import net.minidev.json.JSONObject;
-
 
 @RestController
 @RequestMapping(value="/")
-
 public class UserController {
 	
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 
 	private final UserRepository userRepository;
+	private final UserDAL userDal;
 
-	public UserController(UserRepository userRepository) {
+	public UserController(UserRepository userRepository, UserDAL userdal) {
 		this.userRepository = userRepository;
+		this.userDal = userdal;
 	}
-	
 	
 	@RequestMapping(value="", method= RequestMethod.GET)
 	public List<User> getAllUser(){
@@ -87,5 +86,12 @@ public class UserController {
 		}
 	}
 
+	
+	
+	@RequestMapping(value="/mongotemplate/user", method = RequestMethod.GET)
+	public List<User> getUserAll() {
+		
+		return userDal.getAllUser();
+	}
 
 }

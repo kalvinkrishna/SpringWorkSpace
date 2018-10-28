@@ -6,12 +6,18 @@ import org.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Query;		
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserDALimplement implements UserDAL{
 
 	@Autowired
-	private MongoTemplate mongoTemplate;
+	private final MongoTemplate mongoTemplate;
+
+	public UserDALimplement(MongoTemplate mongoTemplate) {
+		this.mongoTemplate = mongoTemplate;
+	}
 	
 	@Override
 	public List<User> getAllUser() {
@@ -23,13 +29,14 @@ public class UserDALimplement implements UserDAL{
 	public User getUserById(String userId) {
 		// TODO Auto-generated method stub
 		Query query = new Query();
-	//	query.addCriteria(Criteria.where("userId").is(userId));
+		query.addCriteria(Criteria.where("userId").is(userId));
 		return mongoTemplate.findOne(query, User.class);
 	}
 
 	@Override
 	public User addNewUser(User user) {
 		// TODO Auto-generated method stub
+		//return user;
 		mongoTemplate.save(user);
 		return user;
 	}
