@@ -1,0 +1,95 @@
+package org.models;
+
+import java.util.Date;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Customer {
+	@Id
+	private String id_customer;
+	
+	private String id_brand;
+	private String customer_name;
+	private String email;
+	private String phoneNumber;
+	private String address;
+	private double balance;
+	private Date created_at = new Date();
+	private Date updated_at = new Date();
+
+	public String getId_customer() {
+		return id_customer;
+	}
+
+	public void setId_customer(int id_customer) {
+		this.id_customer = id_customer;
+	}
+
+	public String getId_brand() {
+		return id_brand;
+	}
+
+	public void setId_brand(String id_brand) {
+		this.id_brand = id_brand;
+	}
+
+	public String getCustomer_name() {
+		return customer_name;
+	}
+
+	public void setCustomer_name(String customer_name) {
+		this.customer_name = customer_name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	public Date getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
+	}
+
+	public Date getUpdated_at() {
+		return updated_at;
+	}
+
+	public void setUpdated_at(Date updated_at) {
+		this.updated_at = updated_at;
+	}
+	
+	
+}

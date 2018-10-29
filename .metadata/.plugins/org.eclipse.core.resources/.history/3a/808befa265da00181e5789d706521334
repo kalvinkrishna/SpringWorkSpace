@@ -1,0 +1,19 @@
+package org.models;
+
+import java.util.Date;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class DeviceCustomer {
+	
+	@Id
+	private int id_device;
+	private int id_customer;
+	private String device_token;
+	private String device_id;
+	private Date created_at;
+	private Date updated_at;
+	
+}

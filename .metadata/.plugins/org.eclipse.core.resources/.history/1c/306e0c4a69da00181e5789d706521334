@@ -1,0 +1,9 @@
+package org.mongo.dal;
+
+public interface CustomerDAL {
+	
+	public String getCustomerName();
+	public double calculateBalance();
+	public int getBalance();
+	public String getphoneNumber();
+}
