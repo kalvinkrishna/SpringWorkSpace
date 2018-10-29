@@ -1,0 +1,7 @@
+import org.springframework.data.mongodb.repository.cdi.MongoRepositoryBean;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class UserRepository extends MongoRepositoryBean<User, String> {
+
+}

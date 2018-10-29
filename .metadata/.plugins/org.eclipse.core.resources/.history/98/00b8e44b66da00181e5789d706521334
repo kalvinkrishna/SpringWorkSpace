@@ -1,0 +1,21 @@
+package org.models;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Shop {
+	@Id
+	private int id_store;
+	private String store_name;
+	private String store_code;
+	private String address;
+	private String owner;
+	private Map<Shop, StoreWork> store_time;
+	
+	
+	
+}

@@ -1,0 +1,44 @@
+package org.controller;
+
+import java.util.List;
+
+import org.models.Customer;
+import org.mongo.dal.CustomerDAL;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.mongo.dal.CustomerDAL;
+
+@RestController
+@RequestMapping(value="/")
+public class CustomerController {
+	private CustomerDAL customerDal;
+	public CustomerController(CustomerDAL customerDal) {
+		this.customerDal = customerDal;
+	}
+	
+	@GetMapping(value="/customer/list")
+	public ResponseEntity<List<Customer>> getListAll(){
+		HttpHeaders responseHeader = new HttpHeaders();
+		return new ResponseEntity<>(customerDal.getAll(),responseHeader,HttpStatus.ACCEPTED);
+	}
+	
+	
+	@PostMapping(value="/customer/create")
+	public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
+		HttpHeaders responseHeader = new HttpHeaders();
+		
+		return new ResponseEntity<>(customerDal.createNewCustomer(customer),responseHeader, HttpStatus.CREATED);
+	}
+	
+	@PostMapping(value="/customer/update")
+	public String updateCustomer(@RequestBody Customer test){
+		return test.getPhoneNumber();
+	}
+}

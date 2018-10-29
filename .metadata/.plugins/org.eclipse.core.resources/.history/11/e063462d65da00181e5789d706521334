@@ -1,0 +1,25 @@
+package org.models;
+
+import java.util.Date;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Customer {
+	@Id
+	private int id_customer;
+	
+	private int id_brand;
+	private String customer_name;
+	private String email;
+	private String phoneNumber;
+	private String address;
+	private double balance;
+	private Date created_at;
+	private Date updated_at;
+
+	public Customer() {
+		
+	}
+}

@@ -20,9 +20,17 @@ public class CustomerService implements CustomerDAL{
 	MongoTemplate mongotemplate;
 	
 	@Override
-	public Customer getCustomer() {
+	public Customer getCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-		return null;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").is(customer.getId_customer()));
+		return mongotemplate.findOne(query, Customer.class);
+	}
+	
+	@Override
+	public List<Customer> getAll() {
+		// TODO Auto-generated method stub
+		return mongotemplate.findAll(Customer.class);
 	}
 
 	@Override
@@ -80,11 +88,6 @@ public class CustomerService implements CustomerDAL{
 		mongotemplate.remove(query, Customer.class);
 	}
 
-	@Override
-	public List<Customer> getAll() {
-		// TODO Auto-generated method stub
-		
-		return null;
-	}
+	
 
 }

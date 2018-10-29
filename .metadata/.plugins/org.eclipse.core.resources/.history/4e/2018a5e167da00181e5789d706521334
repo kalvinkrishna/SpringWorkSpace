@@ -1,0 +1,12 @@
+package org.models;
+
+@Document
+public class Product {
+	@id
+	
+	private int id_product;
+	private String product_name;
+	private String product_deskription;
+	private String product_video;
+	private Enum status;
+}

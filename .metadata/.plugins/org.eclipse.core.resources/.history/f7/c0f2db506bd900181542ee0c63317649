@@ -1,0 +1,9 @@
+package org.mongo.dal;
+
+import org.models.User;
+public interface UserDAL {
+	
+	List<User> getAllUser();
+	
+	User get
+}

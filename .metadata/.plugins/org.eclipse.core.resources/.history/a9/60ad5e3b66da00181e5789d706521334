@@ -1,0 +1,9 @@
+package org.models;
+
+import java.sql.Time;
+
+public class StoreWork {
+	
+	private Time open;
+	private Time close;
+}

@@ -1,0 +1,8 @@
+package org.mongo.dal;
+
+import org.models.Customer;
+
+public interface CustomerDAL{
+	public Customer getCustomer();
+	public int getBalance();
+}

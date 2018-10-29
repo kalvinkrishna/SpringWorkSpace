@@ -8,7 +8,8 @@ import org.models.Voucher;
 
 public interface CustomerDAL{
 	
-	public Customer getCustomer();
+	public Customer getCustomer(Customer customer);
+	public List<Customer> getAll();
 	public int getBalance();
 	public int getSaldo();
 	public Transaction getTransactionList();
@@ -16,5 +17,5 @@ public interface CustomerDAL{
 	public Customer createNewCustomer(Customer customer);
 	public void UpdateCustomer(Customer customer);
 	public void deleteCustomer(Customer customer);
-	public List<Customer> getAll();
+	
 }

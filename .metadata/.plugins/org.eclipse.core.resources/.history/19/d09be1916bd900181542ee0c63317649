@@ -1,0 +1,11 @@
+package org.mongo.dal;
+
+import java.util.List;
+
+import org.models.User;
+public interface UserDAL {
+	
+	List<User> getAllUser();
+	
+	User get
+}

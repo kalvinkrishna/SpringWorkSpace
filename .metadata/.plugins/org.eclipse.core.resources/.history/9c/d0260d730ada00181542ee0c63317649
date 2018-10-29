@@ -1,0 +1,20 @@
+package org.spring.mail.models;
+
+import java.util.Date;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Mail {
+	@Id
+	private int mail_id;
+	private String message;
+	private String from;
+	private String to;
+	private Date created_at;
+	
+	public List<Mail> getAllMail (){
+		return 
+	}
+}

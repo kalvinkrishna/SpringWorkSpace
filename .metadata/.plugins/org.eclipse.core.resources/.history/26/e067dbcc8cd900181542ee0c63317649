@@ -1,0 +1,14 @@
+package org.main.apps;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan(basePackages = {"org.controller"}, excludeFilters = JpaRepositoriesAutoConfiguration.class)
+public class Application {
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(Application.class, args);
+	}
+}

@@ -1,0 +1,21 @@
+package org.controller;
+
+import org.models.Customer;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(value="/")
+public class CustomerController {
+
+	@GetMapping(value='/listCustomer')
+	public ResponseEntity<Customer> getListAll(){
+
+		HttpHeaders responseHeader = new HttpHeaders();
+		return new ResponseEntity<>(new Customer(),responseHeader,HttpStatus.CREATED);
+	}
+}

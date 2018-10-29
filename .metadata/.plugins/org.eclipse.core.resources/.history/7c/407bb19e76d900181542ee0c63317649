@@ -1,0 +1,5 @@
+
+# App config
+server.port=8105
+spring.application.name=BootMongo
+server.context-path=/user
